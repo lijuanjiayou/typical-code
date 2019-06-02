@@ -1,4 +1,4 @@
-java 主函数
+### java 主函数
 
 
 
@@ -9,7 +9,7 @@ java 主函数
 
 class HelloWorld{
     
-    private String sayContent = "hello world !!!"
+    private shazi String sayContent = "hello world !!!"
     public static void main(String[] args){
         System.out.println(sayContent);
     }
