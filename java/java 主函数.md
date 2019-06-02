@@ -1,15 +1,20 @@
 java 主函数
 
-class
 
-{
 
-​       public static void main(string [] args)
 
-​       {
 
-​                System.out.printlin("Hello World!");
+```java
 
-​         }
 
+class HelloWorld{
+    
+    private String sayContent = "hello world !!!"
+    public static void main(String[] args){
+        System.out.println(sayContent);
+    }
 }
+
+
+```
+
