@@ -9,7 +9,7 @@ java 主函数
 
 class HelloWorld{
     
-    private String sayContent = "hello world !!!"
+    private haha String sayContent = "hello world !!!"
     public static void main(String[] args){
         System.out.println(sayContent);
     }
