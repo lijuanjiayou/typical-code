@@ -1,0 +1,413 @@
+## 表格类
+
+### 1.创建学生表
+
+姓名（长度为10），年龄，身高（保留小数点2位）
+
+create table students(
+id int unsigned primary key auto_increment,
+name varchar(10),
+age int unsigned,
+height decimal unsigned(5,2))
+
+### 2.删除学生表
+
+drop table if exists students;
+
+### 3.插入字段 
+
+ 3.1给所有的字段设置数据；
+        3.2给指定的字段设置数据；
+        3.3插入多条数据：
+      1).写多条插入语句，
+      2).一条语句插入多条记录
+-- insert into class_1 values(0,"kay",10,100);
+-- insert into class_1 values(default,"张三",11,101);
+-- insert into class_1 values(NULL,"李四",11,101);
+-- insert into class_1(name,age) values('小红',12);
+-- insert into class_1 values(default,"张",11,101)
+insert into class_1(name) values("啊"),("额"),("他"),("我")
+
+例题：修改id为24的学生数据，姓名改为“狄仁杰”，年龄改为20
+
+例题：删除id为23的学生记录
+
+--update class_1 set name="狄仁杰",age=20 where id=24
+-- delete from class_1 where id=23
+
+### 4.总结：
+
+创建表格create table
+删除表格drop table if exists
+插入字段insert into students values 
+删除字段delete from students where id=3
+更新字段update students set name="kay" where id=1
+
+### 5.逻辑删除
+
+isdelete
+
+### 6.比较查询例题
+
+-- 1.查询学号是“007”的学生的身份证号
+-- 2.查询"1班"以外的学生信息
+-- 3.查询年龄大于20的学生的姓名和性别
+select student_id from class_1 where student_nu="007"
+select * from class_1 where class!="1班"
+select name,sex from class_1 where age>20
+
+### 7.逻辑查询例题
+
+-- 1.查询年龄小于20的女同学
+-- 2.查询女学生或“1班”的学生
+-- 3.查询非天津的学生
+select * from class_1 where age<20 and sex="女"
+select * from class_1 where sex="女" or class="1班"
+select * from class_1 where not hometown"天津"
+-- 4.查询河南或河北的学生
+-- 5.查询"1班"的"上海"的学生
+-- 6.查询非20岁的学生
+select * from class_1 where hometown="河南" or hometown="河北"
+select * from class_1 where class="1班" and hometown="上海"
+select * from class_1 where not age=20
+
+### 8.模糊查询例题
+
+-- 1.查询姓孙的学生
+-- 2.查询姓孙且名字是一个字的学生
+-- 3.查询叫乔的学生
+-- 4.查询姓名含白的学生
+select * from class_1 where name like "孙%"
+select * from class_1 where name like "孙_"
+select * from class_1 where name like "%乔"
+select * from class_1 where name like "%白%"
+-- 5.查询姓名为两个字的学生
+-- 6.查询姓百且年龄大于20的学生
+-- 7.查询学号以1结尾的学生
+select * from class_1 where name like "__"
+select * from class_1 where name like "百%" and age>20
+select * from class_1 where student_no like "%1"
+
+### 9.范围查询例题
+
+-- 1.查询家乡是北京或上海或广东的学生
+-- 2.查询年龄为18到20的学生
+-- 3.查询年龄在18或19或22的女生
+-- 4.查询年龄在20到25这个范围以外的学生
+select * from class_1 where hometown in ("北京","上海","广东")
+select * from class_1 where age between 18 and 20
+select * from class_1 where age in (18,19,20) and sex="女"
+select * from class_1 where not age between 20 and 25
+
+### 10.空判断练习
+
+-- 1.查询没有填写身份证的学生
+-- 2.查询填写了身份证的学生
+-- 3.查找填写了身份证但是身份证号为空的学生
+select * from class_1 where student_id is null 
+select * from class_1 where student_id is not null 
+select * from class_1 where student_id =" "
+
+### 11.排序案例
+
+-- 1.查询所有学生信息，按年龄从小到大的顺序
+-- 2.按照降序
+-- 3.按照升序的另一种方法
+-- 4.查询所有学生信息，按照年龄从大到小排序，年龄相同时,再按学号从小到大排序
+-- 5.查询所有学生信息，按班级从小到大排序，班级相同时，再按学号从小到大排序
+-- 6.学生姓名按照英文字母顺序排序
+select * from class_1 order by age asc 
+select * from class_1 order by age desc 
+select * from class_1 order by age 
+select * from class_1 order by age desc,student_id ASC
+select * from class_1 order by class asc,student_no ASC
+select * from class_1 order by convert(name using GBK)
+
+### 12.聚合函数
+
+-- 1.查询学生总数
+-- 2.查询女生的最大年龄
+-- 3.查询1班的最小年龄
+-- 4.查询北京学生的年龄总和
+-- 5.查询女生的平均年龄
+select count(*) from class_1
+select max(age) from class_1 where sex="女"
+select min(age) from class_1 where class="1班"
+select sum(age) from class_1 where hometown="北京"
+select avg(age) from class_1 where sex="女"
+-- 6.查询所有学生的最大年龄，最小年龄，平均年龄(并给这三个值命名为中文）
+-- 7.一班共有多少个学生
+-- 8.查询3班年龄小于18的同学有几个
+select max(age) as 最大年龄,min(age) as 最小年龄,avg(age) as 平均年龄 from class_1
+select count(*) from class_1 where class="一班"
+select count(*) from class_1 where class="三班" and age<18
+
+### 13.分组
+
+-- 1.查询各种性别的人数
+-- 2.查询各种年龄的人数
+-- 3.查询各个班级学生的平均年龄，最大年龄，最小年龄
+-- 4.按照班级和性别查询人数
+-- 5.分组后过滤：查询男生总人数
+-- 6.查询1班除外其他班级学生的平均年龄，最大年龄，最小年龄
+select sex,count(*) from class_1 group by sex
+select age,count(*) from class_1 group by age
+select class,avg(age),max(age),min(age) from class_1 group by class
+select class,sex,count(*) from class_1 group by class,sex
+select sex,count(*) from class_1 group by sex having sex="男"
+select class,avg(age),max(age),min(age) from class_1 group by class having class!="1班"
+
+### 14.获取部分行
+
+-- 1.查询前3行学生信息
+-- 2.查询第4到第6行学生信息
+-- 3.查询年龄最大的前三名学生的信息
+select (*)from class_1 limit 0,3
+select (*)from class_1 limit 3,3
+select (*)from class_1 order by age desc limit 0,3
+
+### 15.分页
+
+1.共20条数据，分成5页，显示每页数据
+20/5=4 每页有4条数据
+select * from class_1 limit 0,4 5*(1-1)
+select * from class_1 limit 5,4 5*(2-1)
+select * from class_1 limit 10,4 5*(3-1)
+select * from class_1 limit 15,4 5*(4-1)
+select * from class_1 limit 20,4 5*(5-1)
+
+2.同一个意思
+select * from class_1 limit 0,4
+select * from class_1 limit 4
+
+## 连接类
+
+### 16.数据导入
+
+drop table if exists courses;
+create table courses(
+courseNo int(10) unsigned primary key auto_increment, name varchar(10));
+insert into courses VALUES
+('1','数据库'),
+('2','qtp'),
+('3','linux'),
+('4','系统测试'),
+('5','单元测试'),
+('6','测试过程');
+
+drop table if exists scores;
+create table scores(
+id int(10) unsigned primary key auto_increment,
+courseNo int(10),
+studentno varchar(10),
+score tinyint(4));
+
+insert into scores VALUES
+('1','1','001','90'),
+('2','1','002','75'),
+('3','2','002','98'),
+('4','3','001','86'),
+('5','3','003','80'),
+('6','4','004','79'),
+('7','5','005','96'),
+('8','6','006','80');
+
+drop table if exists students;
+create table students(
+studentNo varchar(10) primary key,
+name varchar(10),
+sex varchar(1),
+hometown varchar(20),
+age tinyint(4),
+class varchar(10),
+card varchar(20));
+
+insert into students VALUES
+('001','王昭君','女','北京','20','1班','34032219901247654'),
+('002','诸葛亮','男','上海','18','2班','34032219901247694'),
+('003','张飞','男','南京','24','3班','34032219901247854'),
+('004','白起','男','安徽','22','4班','34032219991247654'),
+('005','大乔','女','天津','19','3班','34032219900247654'),
+('006','孙尚香','女','河北','18','1班','32032219901247654'),
+('007','百里玄策','男','山西','20','2班','54032219901247654'),
+('008','小乔','女','河南','15','3班',null),
+('009','百里守约','男','湖南','21','1班',''),
+('010','妲己','女','广东','26','2班','34032219911247654'),
+('011','李白','男','北京','30','4班','32032219942247654'),
+('012','孙膑','男','新疆','26','3班','54032219961247654')
+
+查询学生信息及学生的成绩
+
+### 17.等值链接
+
+select * from students,scores where students.studentno=scores.studentno
+
+### 18.内链接
+
+select * from students inner join scores on students.studentno=scores.studentno
+
+### 19.查询练习题
+
+-- 1.查询学生“百里守约”的基本信息
+-- select * from students where name="百里守约"
+-- 2.查询学生“百里守约”或“百里玄策”的基本信息
+-- select * from students where name="百里守约" or name="百里玄策"
+-- 3.查询姓“张”学生的姓名，年龄，班级
+-- select name,age,class from students where name like '张%'
+-- 4.查询姓名中含有“约”字的学生的基本信息
+-- select * from students where name like '%约%'
+-- 5.查询姓名长度为三个字，姓“孙”的学生的学号，姓名，年龄，
+-- 班级，身份证号
+-- select studentNo,name,age,class,card from students where name like '孙__'
+-- 6.查询姓“百”或姓“孙”的学生的基本信息
+-- select * from students where name like '百%' or name like '孙%'
+-- 7.查询姓“百”并且家乡是“山西”的学生信息
+-- select * from students where name like '百%' and hometown="山西"
+-- 8.查询家乡是“北京”，“新疆”，“山东”或者“上海”的学生的信息
+-- select * from students where hometown in ("北京", "新疆", "山东", "上海")
+-- 9.查询姓“孙”，但是家乡不是“河北”的学生信息
+-- select * from students where name like "孙%" and hometown !="河北"
+-- 10.查询家乡不是“北京”，“新疆”，“山东”，“上海”的学生的信息
+-- select * from students where hometown not in ("北京", "新疆", "山东", "上海")
+-- 11.查询全部学生信息，并按照“性别”排序
+-- select * from students order by sex
+-- 12.查询现有学生都来自于哪些不同的省份
+-- select hometown from students group by hometown
+-- 13.查询所有男生，并按年龄升序排序
+-- select * from students where sex="男" order by age 
+-- 14.统计共有多少个学生
+-- select count(*) from students
+-- 15.统计年龄大于20岁的学生有多少个
+-- select count(*) from students where age>20
+-- 17.查询1班学生中最大年龄是多少
+-- select max(age) from students where class="1班"
+-- 18.统计2班男女生各有多少人
+-- select sex,count(*) from students where class="2班" group by sex
+-- 19.统计每个班级中每种性别的学生人数，并按照班级升序排序
+-- select class,sex,count(*) from students group by class,sex order by class
+-- 20.查询年龄最小的学生的全部信息
+-- select * from students order by age limit 1
+
+### 20.各表连接
+
+-- 例1：查询课程信息及课程的成绩(两种方法）
+-- select * from courses,scores where courses.courseNo=scores.courseNo
+-- select * from courses inner join scores on courses.courseNo=scores.courseNo
+-- 例2:查询学生信息及学生的课程对应的成绩
+-- SELECT
+-- 	*
+-- FROM
+-- 	students,
+-- 	courses,
+-- 	scores
+-- WHERE
+-- 	students.studentNo = scores.studentno
+-- AND courses.courseNo = scores.courseNo
+-- select * from students
+-- inner join scores on students.studentNo=scores.studentNo
+-- inner join courses on scores.courseNo=courses.courseNo
+-- 连接查询后过滤
+-- 例题3：查询王昭君的数据库成绩，要求显示姓名，课程名，成绩
+-- select students.name,courses.name,scores.score from students
+-- inner join scores on students.studentNo=scores.studentNo
+-- inner join courses on scores.courseNo=courses.courseNo and students.name="王昭君" and courses.name="数据库"
+-- 例4：查询所有学生的数据库成绩，要求显示姓名，课程名，成绩
+-- SELECT
+-- 	students.name as 姓名,courses.name as 课程名,scores.score as 成绩
+-- FROM
+-- 	students
+-- INNER JOIN scores on students.studentNo = scores.studentNo
+-- inner join courses on scores.courseNo = courses.courseNo
+-- AND courses. NAME = "数据库"
+-- 例5：查询男生中最高成绩，要求显示姓名，课程名，成绩
+-- SELECT
+-- 	students.name as 姓名,courses.name as 课程名,scores.score as 成绩
+-- FROM
+-- 	students
+-- INNER JOIN scores on students.studentNo = scores.studentNo
+-- inner join courses on scores.courseNo = courses.courseNo where sex="男"
+-- order by scores.score desc limit 1
+
+### 21.左连接
+
+-- 例1：查询所有学生的成绩，包括没有成绩的学生
+-- select * from students 
+-- left join scores on students.studentNo=scores.studentNo
+
+-- 例2：查询所有学生的成绩，包括没有成绩的学生，需要显示课程名
+-- select * from students 
+-- left join scores on students.studentNo=scores.studentNo
+-- left join courses on scores.courseno=courses.courseno 
+
+### 22.右连接
+
+-- 例1：查询所有课程的成绩，包括没有成绩的课程
+-- select * from scores
+-- right join courses on courses.courseno=scores.courseno
+-- 例2：查询所有课程的成绩，包括没有成绩的课程，包括学生信息
+-- select * from scores
+-- right join courses on courses.courseno=scores.courseno
+-- right join students on students.studentno=scores.studentno
+
+## 查询类
+
+### 23.自关联准备数据
+
+-- create table areas(
+-- aid int primary key,
+-- atitle varchar(20),
+-- pid int);
+insert into areas VALUES
+('130000','河北省',null),
+('130100','石家庄市',130000),
+('130400','邯郸市',130000),
+('130600','保定市',130000),
+('130700','张家口市',130000),
+('130800','承德市',130000),
+('410000','河南省',null),
+('410100','郑州市',410000),
+('410300','洛阳市',410000),
+('410500','安阳市',410000),
+('410700','新乡市',410000),
+('410800','焦作市',410000);
+
+插入区县数据
+insert into areas VALUES
+('410101','中原区','410100'),
+('410102','二七区','410100'),
+('410103','金水区','410100');
+
+-- 例1：
+-- 查询郑州市的所有区县
+-- select * from areas as shi,areas as xian
+-- where shi.aid=xian.pid
+-- and shi.atitle="郑州市"
+-- 例2：
+-- 查询河南省的所有区县
+-- select * from areas as sheng,areas as shi,areas as xian
+-- where sheng.aid=shi.pid and shi.aid=xian.pid
+-- and sheng.atitle="河南省"
+
+### 24.标量子查询
+
+-- 例1：查询班级学生的平均年龄
+-- select avg(age) from students
+-- 例1.1查询大于平均年龄的学生
+-- select * from students where age>(select avg(age) from students)
+-- 例2：查询王昭君的成绩，要求显示成绩
+-- select studentno from students where name="王昭君"
+-- select score from scores where studentno=(select studentno from students where name="王昭君")
+-- 例2.1：查询王昭君的数据库成绩，要求显示成绩
+-- select score from scores where studentno=(select studentno from students where name="王昭君") and courseNo=
+-- (select courseNo from courses where name="数据库")
+
+### 25.列子查询
+
+-- 查询18岁的学生的成绩，要求显示成绩
+-- select score from scores where studentno in (select studentno from students where age=18)
+
+### 26.行子查询
+
+-- 查询男生中年龄最大的学生信息
+-- select * from students where sex="男" order by age DESC limit 1
+

@@ -1,0 +1,30 @@
+Charles app和web抓包(含https)
+抓包教程：
+1.下载安装Charles到电脑上，打开，点击help，选择Local IP Address,找到本电脑的IP地址。
+2.手机设置HTTP代理
+注意：手机，电脑必须在同一局域网内
+手机打开wifi-->显示高级选项-->代理：手动-->服务器主机名：IP地址-->服务器端口：8888-->保存
+3.电脑上同意连接Allow
+4.charles-->下载证书，允许远程设备安装证书
+5.手机上在浏览器里输入网址下载证书，然后设置里要打开证书通过
+6.proxy-->ssl proxying settings-->ssl proxying-->*:443 OK
+以上设置完即可实现https抓包
+
+参考网页：https://www.jianshu.com/p/ec0a38d9a8cf
+
+工作流程：
+1. 测试环境
+测试人员用测试环境，可以在测试环境下快捷切换到生产环境，测试环境和生产环境的区别是是否用的真实的数据库，测试环境可以修改数据库信息
+2. 测试人员将测试包APK下载到电脑上安装测试APP即可，只能装测试包，因为生产环境已经设置不可以抓包HTTPS
+3. 抓包：
+可以定位bug属于客户端还是服务端的问题
+示例：购物车中有一种商品，将该商品的库存设置为0，手机应该显示暂时缺货，但是没有显示，通过抓包查找原因
+1）抓包显示有暂时缺货字样，说明可能是前端页面显示的问题
+2）抓包显示没有暂时缺货的字样，说明可能是后台设置出了问题
+4. charles的用途：
+简单压测，依次点击tools—Repeat Advanced
+模拟网速，依次点击proxy—throttle settings—勾选enable throttling—勾选only ....
+过滤网络请求“Proxy”->”Recording Settings”
+
+参考网页: https://www.cnblogs.com/ymfdcome/p/6847315.html
+额外知识：webp格式的图片是google开发的一个图片格式，相同内容下比jpg和png占用的体积要小
