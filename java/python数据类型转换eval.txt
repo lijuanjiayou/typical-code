@@ -1,0 +1,8 @@
+eval()
+用来计算在字符串中的有效Python表达式，并返回一个对象
+
+my_str="3.14"
+rel1=eval(my_str)
+print(rel1)
+
+输出结果：3.14
