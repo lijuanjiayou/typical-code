@@ -1,0 +1,140 @@
+一、 九九乘法表
+# 定义一个变量，记录行数x
+# 定义一个变量，记录列数y
+x=1
+while x<=9:
+    y=1
+    while y<=x:
+        print("%d * %d = %2d" % (y,x,x*y),end="    ")
+        y+=1
+    print()
+    x+=1
+
+二、for 循环的取值范围 左闭右开[ 0,5)
+for i in range(1,6):
+    print("第%d次" % i)
+    print("你好")
+
+三、break 和 continue在while和for循环中的应用
+# break停止循环
+# continue跳出循环，本次不执行，继续下一步
+# while break
+# i=1
+# while i<=5:
+#     if i==3:
+#         break
+#     print(i)
+#     i+=1
+
+四、for else/ while else
+for-else 配合使用，待for循环完成后，会走else中的代码
+for循环中如果执行了break,else中的代码将不再执行
+while 同理
+
+五、字符串的介绍
+1.字符串其实就是一个有序的字符序列，顺序是不可以改变的
+2.python中定义一个字符串，无论是单引号，还是双引号，是等价的
+3.python中提供了一个len函数，计算字符串的字符个数
+         name="hello"
+         print(len(name))
+
+输出：5
+
+六、升序降序
+my_list=[2,4,6,8,10,11]
+#升序
+my_list.sort()
+print(my_list）
+#降序
+my_list.sort(reverse=True)
+print(my_list)
+
+七、最大值，最小值
+#最大值
+my_list=[1,2,3,4,5,6]
+my_max=my_list[0]
+for value in my_list:
+      if value>my_max:
+         my_max=value
+print(my_max)
+
+#最小值
+my_list=[1,2,3,4,5,6]
+my_min=my_list[0]
+for value in my_list:
+      if value<my_min:
+         my_min=value
+print(my_min)
+
+八、总结：列表循环遍历for 循环和 while循环
+添加元素：
+         append添加一个整体（一个对象）
+         extend添加一个可以遍历的对象（有序的字符序列）
+         insert插入到指定位置
+修改元素：
+#3.14改为3000
+my_list[-1]=3000
+print(my_list)
+
+查找元素：in,not in, index, count
+index  通过index获取某个元素在列表中的下标索引
+count  查找某个元素的值在列表中出现的次数
+
+删除元素：del,pop,remove
+# 定义一个列表
+my_list = ["小明", 20, "小红", 50]
+
+# del 删除指定的元素 (通过下标索引)
+# 格式: del 列表名[下标索引]
+# del 这个函数 是python内置函数(len  del)
+# del my_list[1]
+# print(my_list)
+
+
+# pop是属于列表的方法
+# pop 默认情况下 会从列表的后面开始删除
+# .pop() 会有一个返回值 告知删除元素的值
+# print(my_list.pop())
+# print(my_list)
+
+# pop(下标索引)
+# ret = my_list.pop(0)
+# print(ret)
+# print(my_list)
+
+# remove 通过对象(数值)来删除列表中的元素
+# my_list.remove("小红")
+# print(my_list)
+
+
+# del 第二种用法 了解
+# 提前杀死对象 提前释放内存
+# del my_list
+
+
+# clear 清空列表(列表中所有的元素全部删除)
+my_list.clear() # 等价于 my_list = [] 或者 my_list = list()
+print(my_list)
+
+# while continue
+# i=0
+# while i<5:
+#     i+=1
+#     if i==3:
+#         continue
+#     print(i)
+
+# for break
+# i=1
+# for i in range(5):
+#     print(i)
+#     if i==3:
+#         break
+
+# for break
+# i=1
+# for i in range(5):
+#     if i==3:
+#         continue
+#     print(i)
+九、列表嵌套：my_list[][]

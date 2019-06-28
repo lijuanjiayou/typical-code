@@ -1,0 +1,9 @@
+1、CPython是什么？
+python是一种编程语言。但这种语言有多种实现，而且与其他语言不同，python并没有一个专门的机构负责实现，而是由多个社区来实现。其中使用c语言开发的叫做python，在于别的语言开发的python对比时为避免歧义通常称为CPython。同样的，使用java开发的叫做JPython，使用.net开发的叫做IronPython。
+
+2、Cpython和PyPy的区别是什么？
+而PyPy与CPython的不同在于，别的一些python实现如CPython是使用解释执行的方式，这样的实现方式在性能上是很凄惨的。而PyPy使用了JIT(即时编译)技术，在性能上得到了提升。
+
+3、PyCharm是什么？
+PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。
+
