@@ -1,0 +1,10 @@
+# 1.打开一个文件hm.txt
+old_f=open("hm.txt","r")
+# 2.读取该文件的内容
+result=old_f.read()
+# 3.创建一个新文件
+new_f=open("hm[copy].txt","w")
+new_f.write(result)
+# 4.关闭新旧文件
+old_f.close()
+new_f.close()
