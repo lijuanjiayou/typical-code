@@ -1,0 +1,19 @@
+#子类调用父类同名属性和方法
+class Master(object):
+    def make_cake(self):
+        print("古法煎饼果子")
+class School(object):
+    def make_cake(self):
+        print("现代煎饼果子")
+class Prentice(Master,School):
+    def make_cake(self):
+        print("猫氏煎饼果子")
+    def make_old_cake(self):
+        Master.make_cake(self)
+    def make_new_cake(self):
+        School.make_cake(self)
+
+damao=Prentice()
+damao.make_cake()
+damao.make_new_cake()
+damao.make_old_cake()

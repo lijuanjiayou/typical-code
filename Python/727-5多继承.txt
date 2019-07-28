@@ -1,0 +1,23 @@
+#多继承
+class Master(object):
+    def __init__(self):
+        self.kongfu="古法煎饼果子配方"
+    def make_cake(self):
+        print("按照<%s>制作煎饼果子" % self.kongfu)
+    def dayanda(self):
+        print("大烟袋")
+
+class School(object):
+    def __init__(self):
+        self.kongfu="现代煎饼果子配方"
+    def make_cake(self):
+        print("按照<%s>制作煎饼果子" % self.kongfu)
+    def xiaoyandai(self):
+        print("小烟袋")
+class Prentice(School,Master):
+    pass
+damao=Prentice()
+print(damao.kongfu)
+damao.make_cake()
+damao.dayanda()
+damao.xiaoyandai()

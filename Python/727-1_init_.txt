@@ -1,0 +1,63 @@
+# 1.# 自定义一个悟空对象  他会走(方法 行为) 他有名字 悟空 有年龄 500 有血量 3000 攻击力 400(属性 特征)
+# class Hero(object):
+#     def move(self):
+#         print(id(self))
+#         print("英雄会走！")
+#
+#
+# wukong=Hero()
+# wukong.move()
+# wukong.name="悟空"
+# wukong.age=500
+# wukong.hp=3000
+# wukong.atk=400
+# print(wukong.name,wukong.age,wukong.hp,wukong.atk)
+
+
+# 2. 自定义一个犬类 来创建各种 叫名字旺财的狗 年龄 5 皮色 黑色  会吃骨头
+# class Dog(object):
+#     def eat(self):
+#         print("我会吃骨头！")
+#     def info(self):
+#         print(self.name,self.age,self.color)
+#
+# wangcai=Dog()
+# wangcai.eat()
+# wangcai.name="旺财"
+# wangcai.age=5
+# wangcai.color="color"
+# wangcai.info()
+# class Dog():
+#     def __init__(self,new_name,new_age,new_color="黑色"):
+#         print("="*30)
+#         self.name=new_name
+#         self.age=new_age
+#         self.color=new_color
+#     def eat(self):
+#         print("狗吃骨头！")
+#     def info(self):
+#         print("名字:%s"% self.name)
+#         print("年龄:%d"% self.age)
+#         print("毛色:%s"% self.color)
+# wangcai1=Dog("旺财",11)
+# wangcai1.info()
+
+# wangcai2=Dog("斗牛犬",12)
+# wangcai2.info()
+# 3. 自定义学生类 有姓名 年龄 学号 80%学生都20岁 学生会学习 可以说出自己的的信息
+# 创建两个学生 xx xxx
+class Student(object):
+    def __init__(self,new_name,new_studentID,new_age=20):
+        self.name=new_name
+        self.age=new_age
+        self.ID=new_studentID
+    def study(self):
+        print("学生会学习！")
+    def info(self):
+        print("我的名字是：%s"% self.name)
+        print("我的年龄是：%d"% self.age)
+        print("我的学号是：%s"% self.ID)
+xiaoming=Student("小明","123456789")
+xiaoming.info()
+xiaohong=Student("小红","987654321")
+xiaohong.info()

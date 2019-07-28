@@ -1,0 +1,15 @@
+class Master(object):
+    def __init__(self):
+        self.kongfu="古法煎饼果子配方"
+    def make_cake(self):
+        print("按照<%s>制作煎饼果子" % self.kongfu)
+# 创建一个李师傅
+lishifu=Master()
+print(lishifu.kongfu)
+lishifu.make_cake()
+#自定义一个徒弟类
+class Prentice(Master):
+    pass
+damao=Prentice()
+print(damao.kongfu)
+damao.make_cake()

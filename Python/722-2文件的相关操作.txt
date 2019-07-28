@@ -1,0 +1,29 @@
+import os
+# 1.文件或文件夹重命名rename()
+# rename(需要修改的文件名，新的文件名）
+# os.rename("hm.txt","hmhm.txt")
+
+# 2.删除文件remove()
+# os.remove("hm[copy].txt")
+
+# 3.创建文件夹mkdir()
+# os.mkdir("黑马")
+
+# 4.获取当前目录getcwd()
+# 获取到的是绝对路径，可以看到盘符
+# ret=os.getcwd()
+# print(ret)
+
+# 5.改变默认路径chdir()
+# ./是进入下一级，../是返回上一级
+# os.chdir("../")
+# ret=os.getcwd()
+# print(ret)
+
+# 6.获取当前文件夹的列表listdir()
+# my_list=os.listdir()
+# print(my_list)
+
+# 7.删除文件夹rmdir()
+# os.rmdir("黑马")
+

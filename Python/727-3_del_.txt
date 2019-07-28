@@ -1,0 +1,15 @@
+class Hero(object):
+    def __init__(self,name):
+        self.name=name
+    def __str__(self):
+        return "名字：%s" % self.name
+    def __del__(self):
+        print("再见")
+
+gailun=Hero("盖伦")
+gailun2=gailun
+gailun3=gailun
+del gailun
+del gailun2
+del gailun3
+input("停在这里")

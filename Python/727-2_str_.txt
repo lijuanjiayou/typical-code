@@ -1,0 +1,10 @@
+#自定义一个英雄类,有名字，血量，攻击力
+class Hero(object):
+    def __init__(self,name,hp,apk):
+        self.name=name
+        self.hp=hp
+        self.apk=apk
+    def __str__(self):
+        return "名字：%s,血量：%d,攻击力：%d" % (self.name,self.hp,self.apk)
+wukong=Hero("悟空",4000,300)
+print(wukong)

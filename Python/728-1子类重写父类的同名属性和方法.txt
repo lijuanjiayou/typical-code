@@ -1,0 +1,26 @@
+# 自定义一个师傅类
+class Master(object):
+    #构造方法
+    def __init__(self):
+        self.kongfu="古法煎饼果子配方"
+    def make_cake(self):
+        print("按照<%s>制作煎饼果子" %self.kongfu)
+
+#自定义一个现代
+class School(object):
+    def __init__(self):
+        self.kongfu="现代煎饼果子配方"
+    def make_cake(self):
+        print("按照<%s>制作煎饼果子" %self.kongfu)
+
+#自定义一个徒弟类
+class Prentice(Master,School):
+    def __init__(self):
+        self.kongfu="猫氏煎饼果子配方"
+    def make_cake(self):
+        print("按照<%s>制作煎饼果子" %self.kongfu)
+
+damao=Prentice()
+damao.make_cake()
+print(damao.kongfu)
+
