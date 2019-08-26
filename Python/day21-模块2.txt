@@ -1,0 +1,18 @@
+1.标准库模块
+time模块
+ramdom模块
+os模块：是与操作系统交互的一个接口
+os.rename("oldname","newname") 重命名文件/目录
+
+
+sys模块:和解释器打交道的一个接口
+
+
+json&pickle模块
+logging模块
+日志级别等级critical>error>warning>info>debug>notset
+默认的日志格式为日志级别，logger名称：用户输出消息
+默认情况下Python中的logging模块将日志大隐刀标准输出中，且只显示了大于等于warning级别的日志，这说明默认的日志级别设置为warning。
+
+re模块
+就其本质而言，正则表达式（或re)是一种小型的、高度专业化的编程语言，它内嵌在python中，并通过re模块实现。正则表达式模式被编译成一系列字节码，然后由用C编写的匹配引擎执行。

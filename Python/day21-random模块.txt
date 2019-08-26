@@ -1,0 +1,38 @@
+1. import random
+random.random()
+输出范围：（0,1）float
+
+ramdom.randint(1,3)
+输出范围：[1,3]
+
+random.randrange(1,3)
+输出范围:[1,3)
+
+random.choice([1,"23",[4,5]])
+输出范围：任意一个元素，#23
+
+random.sample([1,"23",[4,5]],2)
+输出范围：任意两个元素，#[[4,5],"23"]
+
+ramdom.uniform(1,3)
+输出范围：(1,3)范围内的浮点数
+
+ramdom.shuffle([1,2,3,4,5])
+打乱顺序重新排序
+
+练习：写一个5位的验证码
+
+import random
+def v_code():
+     ret =""
+     for i in range(5):
+         num=random.randint(0,9)
+         alf=chr(random.randint(65,122))
+         s=str(random.choice([num,alf]))
+         ret+=s
+     return ret
+
+print(v_code())
+
+
+

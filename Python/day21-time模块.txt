@@ -1,0 +1,54 @@
+1.时间戳
+time.time()
+打印的是一个秒数，是从1970年1月1日凌晨开始计算，到现在多少秒了
+
+2.结构化时间
+
+time.localtime()
+
+打印的是具体的当前时间
+time.struct_time(tm_year=2016, tm_mon=12, tm_hour=17, tm_min=28,tm_sec=1, tm_wday=0, tm_yday=347,tm_isdst=0)
+t=time.localtime()
+例：print(t.tm_year())只打印年份
+
+time.gmtime()
+
+格林尼治时间，及世界标准时间，中国在东八区，gm时间要减掉8小时
+
+3.将结构化时间转换成时间戳
+print(time.kmtime(time.localtime()))
+
+4.将结构化时间转换成字符串时间
+print(time.strftime("%Y-%m-%d %X",time.localtime()))
+输出：2016-12-12 17:47:48
+5.将字符串时间转换成结构化时间
+print(time.strptime("2016:12:24:17:50:36","%Y:%m:%d:%X"))
+输出：time.struct_time(tm_year=2016,tm_mon=12, tm_mday=24.....)
+
+6.print(time.asctime())
+print(time.ctime())
+输出：Mon Dec 12 17:54:28 2016
+
+7. sleep(secs)
+线程推迟指定的时间运行，单位为秒
+
+8. import datetime
+print(datetime.datetime.now())
+输出：2016-12-12 17:59:46.316449
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

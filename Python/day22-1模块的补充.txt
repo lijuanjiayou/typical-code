@@ -1,0 +1,15 @@
+1. import 模块
+python会先找解释器提供的模块，找到了就不会找自己定义的模块了
+
+2. 临时修改环境变量
+import sys
+sys.path.append()
+
+3.print(__file__)
+
+import os
+base_dir=os.path.abspath(__file__)
+print(base_dir)
+打印当前文件的绝对路径;
+输出：C:\desktop\新建文件夹(2)\calculation\bin\bin.py
+

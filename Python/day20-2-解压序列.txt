@@ -1,0 +1,50 @@
+Microsoft Windows [版本 10.0.17134.885]
+(c) 2018 Microsoft Corporation。保留所有权利。
+
+C:\Users\kay zhang>python
+Python 3.7.2 (tags/v3.7.2:9a3ffc0492, Dec 23 2018, 22:20:52) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> a,b,c=(1,2,3)
+>>> a
+1
+>>> b
+2
+>>> c
+3
+>>> a,b,c,d="1,2,3,4"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: too many values to unpack (expected 4)
+>>> a
+1
+>>> b
+2
+>>> c
+3
+>>> d
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'd' is not defined
+>>> a,b,c,d="hell"
+>>> a
+'h'
+>>> b
+'e'
+>>> c
+'l'
+>>> d
+'l'
+>>> l=(1,2,3,4,5,6,7,8,9)
+>>> a,*_,b=l
+>>> a
+1
+>>> b
+9
+>>> f1=1
+>>> f2=2
+>>> f1,f2=f2,f1
+>>> f1
+2
+>>> f2
+1
+>>>

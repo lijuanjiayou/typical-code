@@ -1,0 +1,76 @@
+1.模块：
+在Python中，一个.py文件就称之为一个模块（Module）.
+优点：
+1）提高了代码的可维护性
+2）提高了代码的复用性
+3）使用模块可以避免函数名和变量名冲突。相同名字的函数和变量完全可以分别存在不同的模块中，因此，我们自己在编写模块时，不必考虑名字会与其他模块冲突。但是也要注意，尽量不要与内置函数名字冲突。
+
+
+2.模块一共有三种：
+1）python标准库
+2）第三方模块
+ 需要用命令下载安装
+3）应用程序自定义模块
+
+3.文件夹directory和包package的区别：
+包多一个_init_.py文件
+
+4. import cal
+会首先执行cal模块中的逻辑函数如print，然后执行里面的功能函数如def
+
+5. from cal import *
+*代表一切，不推荐使用，因为调用的模块里可能包含与本模块重复的函数，容易导致错误
+ 
+6.import cal,time
+可以同时并列引用多个模块
+
+7. import sys
+print(sys.path)
+选择第一个，为执行文件所在路径
+
+['C:\\desktop\\新建文件夹(2)\\calculation', 
+'C:\\desktop\\新建文件夹(2)',
+'C:\\Users\\kay zhang\\AppData\\Local\\Programs\\Python\\Python37-32\\python37.zip', 
+'C:\\Users\\kay zhang\\AppData\\Local\\Programs\\Python\\Python37-32\\DLLs', 
+'C:\\Users\\kay zhang\\AppData\\Local\\Programs\\Python\\Python37-32\\lib', 
+'C:\\Users\\kay zhang\\AppData\\Local\\Programs\\Python\\Python37-32',
+'C:\\Users\\kay zhang\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\site-packages']
+
+8. 执行文件必须和调用的模块在同一级才可以直接调用，如果不在同一级，则需要从同级目录调用
+from my_module import cal
+print(cal.add(3,4))
+
+9.main.py文件放的都是与逻辑相关的主函数，如print()函数，
+其实文件必须在bin.py文件中执行，bin.py是执行文件。main.py需要from my_module import cal,因为main.py不是执行文件，只是引入文件，python找不到main.py的同级文件，只能找到bin.py的同级文件
+
+10.包(package)
+不同的包里面可以包含相同名字的模块。每一个包目录下面都会有一个_init_文件，这个文件是必须存在的，否则，python就把这个目录当成普通目录（文件夹），而不是一个包。_init_文件可以是一个空文件，也可以有python代码，因为_init_.py本身就是一个模块，而它的模块名就是对应包的名字。
+调用包就是执行包下的_init_.py文件
+
+11. from web.web1.web2 import cal
+from web.web1.web2.cal import add
+以上两种都可以
+
+from web.web1 import web3
+执行的是web3中的_init_文件，唯一不支持的调用方式
+
+12.print(__name__)
+在执行文件里，则打印__main__,执行调用文件里的print(__name__),则打印调用的文件的路径
+
+13. if __name__=="__main__"
+作用：
+1.放到被调用文件里，用于被调用文件的测试；
+2.放在执行文件里，表示不想被其他文件调用。
+from my_module import main
+if __name=="__main__":
+        main.run()
+一般写函数加上这个，不会造成程序之间的调用嵌套错误。
+
+
+
+
+
+
+
+
+
